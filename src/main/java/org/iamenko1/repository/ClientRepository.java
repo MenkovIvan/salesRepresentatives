@@ -11,6 +11,8 @@ public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
 
         Optional<ClientEntity> findByClientId(Long clientId);
 
+        Stream<ClientEntity> streamAllByAddressStartsWithIgnoreCase(String address);
+
         Stream<ClientEntity> streamAllBy();
 
         Optional<ClientEntity> findByUserEntity(UserEntity user);
