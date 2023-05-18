@@ -33,7 +33,7 @@ public class StorageController {
 
     /**
      * Получение списка складов по началу названия
-     * example: http://localhost:8080/salesRep/api/storages?prefix_name=menkov
+     * example: http://localhost:8080/api/storages?prefix_name=menkov
      * @param optionalPrefixName //начало названия склада
      * @return если пустой - весь список складов, или название складов с этой строки
      */
@@ -54,7 +54,7 @@ public class StorageController {
 
     /**
      * Получение склада по id
-     * example: http://localhost:8080/salesRep/api/storages/123
+     * example: http://localhost:8080/api/storages/123
      * @param storageId - ключ
      * @return склад
      */
@@ -67,7 +67,7 @@ public class StorageController {
 
     /**
      * Добавление склада
-     * example: http://localhost:8080/salesRep/api/storages
+     * example: http://localhost:8080/api/storages
      * @param
      * @return storageDto
      */
@@ -92,9 +92,10 @@ public class StorageController {
 
     /**
      * Изменение склада
-     * example: http://localhost:8080/salesRep/api/users/4?login=Forth
-     * @param login
-     * @param userId
+     * example: http://localhost:8080/api/storages/4?login=Forth
+     * storage_id - id
+     * @param name - название
+     * @param address - адрес
      * @return UserDto
      */
     @PatchMapping(EDIT_STORAGE)     //для примера для передачи использутся поле в запросе + поле в RequestParam
@@ -133,7 +134,7 @@ public class StorageController {
 
     /**
      * Удаление user
-     * DELETE http://localhost:8080/salesRep/api/storages/2
+     * DELETE http://localhost:8080/api/storages/2
      * @param storage_id // id storage for delete
      * @return AckDto (boolean answer)
      */
