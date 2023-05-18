@@ -10,6 +10,8 @@ public interface StorageRepository extends JpaRepository<StorageEntity, Long> {
 
     Optional<StorageEntity> findByStorageId(Long storageId);
 
+    Optional<StorageEntity> findByName(String name);
+
     Stream<StorageEntity> streamAllBy();
 
     Stream<StorageEntity> streamAllByNameStartsWithIgnoreCase(String prefix);
