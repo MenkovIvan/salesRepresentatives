@@ -33,7 +33,7 @@ public class ProductEntity {
     private CompanyEntity company;
 
     @OneToMany(mappedBy = "product")
-    private Set<OrderBasket> productsInBasket;
+    private Set<OrderBasketEntity> productsInBasket;
 
     @Override
     public boolean equals(Object o) {

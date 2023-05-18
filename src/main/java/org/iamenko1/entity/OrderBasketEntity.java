@@ -12,7 +12,7 @@ import java.util.Objects;
 @Setter
 @Entity
 @Table(name = "order_basket")
-public class OrderBasket {
+public class OrderBasketEntity {
     @EmbeddedId
     private OrderBasketKey orderBasketKey;
 
@@ -32,7 +32,7 @@ public class OrderBasket {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderBasket that = (OrderBasket) o;
+        OrderBasketEntity that = (OrderBasketEntity) o;
         return Objects.equals(orderBasketKey, that.orderBasketKey) && Objects.equals(numbers, that.numbers);
     }
 
