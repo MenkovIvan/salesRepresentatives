@@ -10,6 +10,8 @@ public interface RouteRepository extends JpaRepository<RouteEntity, Long> {
 
     Optional<RouteEntity> findByRouteId(Long routeId);
 
+    Optional<RouteEntity> findByName(String name);
+
     Stream<RouteEntity> streamAllBy();
 
     Stream<RouteEntity> streamAllByNameStartsWithIgnoreCase(String prefix);
