@@ -3,6 +3,7 @@ package org.iamenko1.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -26,4 +27,17 @@ public class OrderBasket {
     private ProductEntity product;
 
     private Integer numbers;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderBasket that = (OrderBasket) o;
+        return Objects.equals(orderBasketKey, that.orderBasketKey) && Objects.equals(numbers, that.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderBasketKey, numbers);
+    }
 }

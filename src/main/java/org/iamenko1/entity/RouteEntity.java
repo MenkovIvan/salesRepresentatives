@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -26,4 +27,17 @@ public class RouteEntity {
 
     @OneToOne(mappedBy = "route")
     private TaskEntity task;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RouteEntity that = (RouteEntity) o;
+        return Objects.equals(routeId, that.routeId) && Objects.equals(name, that.name) && Objects.equals(totalLength, that.totalLength) && Objects.equals(time, that.time) && Objects.equals(numOfStorages, that.numOfStorages);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(routeId, name, totalLength, time, numOfStorages);
+    }
 }

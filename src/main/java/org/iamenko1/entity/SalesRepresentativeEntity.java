@@ -3,6 +3,7 @@ package org.iamenko1.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Builder
@@ -36,4 +37,17 @@ public class SalesRepresentativeEntity {
 
     @OneToMany(mappedBy = "salesRepresentative")
     private Set<TaskEntity> tasks;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SalesRepresentativeEntity that = (SalesRepresentativeEntity) o;
+        return Objects.equals(salesRepId, that.salesRepId) && Objects.equals(hoursOfWorking, that.hoursOfWorking) && Objects.equals(email, that.email) && Objects.equals(numOfTasks, that.numOfTasks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(salesRepId, hoursOfWorking, email, numOfTasks);
+    }
 }

@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.Set;
 
 @Builder
@@ -32,4 +33,17 @@ public class OrderEntity {
 
     @OneToMany(mappedBy = "order")
     private Set<OrderBasket> productsInBasket;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderEntity that = (OrderEntity) o;
+        return Objects.equals(orderId, that.orderId) && Objects.equals(status, that.status) && Objects.equals(UpdatedAt, that.UpdatedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderId, status, UpdatedAt);
+    }
 }

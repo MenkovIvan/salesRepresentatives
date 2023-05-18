@@ -3,6 +3,7 @@ package org.iamenko1.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Builder
@@ -21,4 +22,17 @@ public class StorageEntity {
     private String address;
     @OneToMany(mappedBy = "storage")
     private Set<ProductEntity> products;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StorageEntity that = (StorageEntity) o;
+        return Objects.equals(storageId, that.storageId) && Objects.equals(name, that.name) && Objects.equals(address, that.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(storageId, name, address);
+    }
 }

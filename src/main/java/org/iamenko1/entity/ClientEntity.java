@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -29,4 +30,17 @@ public class ClientEntity {
 
     @OneToOne(mappedBy = "client")
     private OrderEntity order;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClientEntity that = (ClientEntity) o;
+        return Objects.equals(clientId, that.clientId) && Objects.equals(createdAt, that.createdAt) && Objects.equals(address, that.address) && Objects.equals(numberOfOrders, that.numberOfOrders);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientId, createdAt, address, numberOfOrders);
+    }
 }

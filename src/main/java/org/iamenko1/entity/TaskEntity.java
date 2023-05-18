@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -32,4 +33,17 @@ public class TaskEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id", referencedColumnName = "order_id")
     private OrderEntity order;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskEntity that = (TaskEntity) o;
+        return Objects.equals(taskId, that.taskId) && Objects.equals(status, that.status) && Objects.equals(updatedBy, that.updatedBy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId, status, updatedBy);
+    }
 }
