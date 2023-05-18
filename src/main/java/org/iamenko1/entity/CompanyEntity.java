@@ -27,7 +27,7 @@ public class CompanyEntity {
     @JoinColumn(name = "owner_id", referencedColumnName = "user_id")
     private UserEntity userEntity;
 
-    @ManyToMany(mappedBy = "companies")
+    @OneToMany(mappedBy = "company")
     private Set<SalesRepresentativeEntity> salesRepresentatives;
 
     @OneToMany(mappedBy = "company")

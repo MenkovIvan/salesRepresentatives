@@ -28,12 +28,9 @@ public class SalesRepresentativeEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private UserEntity userEntity;
 
-    @ManyToMany
-    @JoinTable(
-            name = "salesRep_companies",
-            joinColumns = @JoinColumn(name = "sales_rep_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id"))
-    Set<CompanyEntity> companies;
+    @ManyToOne
+    @JoinColumn(name = "company_id", referencedColumnName = "company_id")
+    private CompanyEntity company;
 
     @OneToMany(mappedBy = "salesRepresentative")
     private Set<TaskEntity> tasks;
