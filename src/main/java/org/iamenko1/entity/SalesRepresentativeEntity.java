@@ -34,6 +34,6 @@ public class SalesRepresentativeEntity {
             inverseJoinColumns = @JoinColumn(name = "company_id"))
     Set<CompanyEntity> companies;
 
-    @OneToOne(mappedBy = "salesRepresentative")
-    private TaskEntity task;
+    @OneToMany(mappedBy = "salesRepresentative")
+    private Set<TaskEntity> tasks;
 }

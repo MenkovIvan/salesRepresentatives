@@ -25,7 +25,7 @@ public class TaskEntity {
     @JoinColumn(name = "route_id", referencedColumnName = "route_id")
     private RouteEntity route;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sales_rep_id", referencedColumnName = "sales_rep_id")
     private SalesRepresentativeEntity salesRepresentative;
 
