@@ -14,6 +14,8 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, Long> {
 
     Optional<CompanyEntity> findByCompanyId(Long companyId);
 
+    Optional<CompanyEntity> findByName(String name);
+
     Stream<CompanyEntity> streamAllBy();
 
     Stream<CompanyEntity> streamAllByNameStartsWithIgnoreCase(String prefix);
