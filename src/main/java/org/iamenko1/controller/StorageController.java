@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.iamenko1.dto.AckDto;
 import org.iamenko1.dto.StorageDto;
 import org.iamenko1.entity.StorageEntity;
-import org.iamenko1.entity.UserEntity;
 import org.iamenko1.exception.BadRequestException;
 import org.iamenko1.exception.NotFoundException;
 import org.iamenko1.factory.StorageDtoFactory;

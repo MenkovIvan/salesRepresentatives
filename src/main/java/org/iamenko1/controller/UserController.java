@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Transactional
-@RestController("/salesRep")
+@RestController
 public class UserController {
 
     private final UserRepository userRepository;
