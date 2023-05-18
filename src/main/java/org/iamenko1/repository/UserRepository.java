@@ -11,6 +11,10 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByUserId(Long userId);
 
+    Optional<UserEntity> findByLogin(String login);
+
+    Optional<UserEntity> findByLoginAndPassword(String login, String password);
+
     Stream<UserEntity> streamAllBy();
 
     Stream<UserEntity> streamAllByFioStartsWithIgnoreCase(String prefix);
