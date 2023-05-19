@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
-    Optional<ProductEntity> findByProductId(ProductEntity product);
+    Optional<ProductEntity> findByProductId(Long id);
 
     Stream<ProductEntity> streamAllBy();
 
